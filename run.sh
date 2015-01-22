@@ -9,4 +9,4 @@ sed -i "s/<string>user/<string>$JSS_USER/" -i $APP_DIR/com.github.sheagcraig.pyt
 sed -i "s/<string>password/<string>$JSS_PASS/" -i $APP_DIR/com.github.sheagcraig.python-jss.plist
 sed -i "s@<string>https://casper.domain.com:8443@<string>$(echo $JSS_URL)@" -i $APP_DIR/com.github.sheagcraig.python-jss.plist
 
-python $APP_DIR/jsspull.py --dbprefs $APP_DIR/com.github.nmcspadden.prefs.json --jssprefs $APP_DIR/com.github.sheagcraig.python-jss.plist
+/usr/bin/python -u $APP_DIR/jsspull.py --dbprefs $APP_DIR/com.github.nmcspadden.prefs.json --jssprefs $APP_DIR/com.github.sheagcraig.python-jss.plist --verbose
