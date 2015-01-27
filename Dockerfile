@@ -13,7 +13,6 @@ ENV JSS_PASS password
 ENV JSS_URL https://casper:8443/
 
 RUN apt-get update
-RUN apt-get install -y git
 RUN apt-get install -y python-setuptools
 RUN apt-get install -y python-psycopg2
 RUN apt-get clean
@@ -23,7 +22,7 @@ RUN easy_install pip
 
 RUN pip install python-jss
 
-RUN git clone https://github.com/nmcspadden/JSSImport $APP_DIR
+ADD https://github.com/nmcspadden/JSSImport/master.tar.gz | tar -xz -C $APP_DIR
 
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
