@@ -23,7 +23,7 @@ RUN easy_install pip
 RUN pip install python-jss
 
 ADD https://github.com/nmcspadden/JSSImport/tarball/master $APP_DIR/master.tar.gz
-RUN tar -zxvf /home/jssi/master.tar.gz && mv nmcspadden*/* . && rm -rf nmcspadden-JSSImport* && rm /home/jssi/master.tar.gz
+RUN tar -zxvf /home/jssi/master.tar.gz && mv nmcspadden*/* $APP_DIR/ && rm -rf nmcspadden-JSSImport* && rm /home/jssi/master.tar.gz
 
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
