@@ -22,8 +22,8 @@ RUN easy_install pip
 
 RUN pip install python-jss
 
-ADD https://github.com/nmcspadden/JSSImport/archive/master.zip /master.zip
-RUN gunzip -d $APP_DIR /master.zip && rm /master.zip
+ADD https://github.com/nmcspadden/JSSImport/tarball/master $APP_DIR/master.tar.gz
+RUN tar -zxvf /home/jssi/master.tar.gz && rm /home/jssi/master.tar.gz
 
 ADD run.sh /run.sh
 RUN chmod 755 /run.sh
