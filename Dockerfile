@@ -17,6 +17,7 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD https://github.com/sheagcraig/python-jss/tarball/master /usr/local/python-jss/master.tar.gz
 RUN tar -zxvf /usr/local/python-jss/master.tar.gz --strip-components=1 -C /usr/local/python-jss && rm /usr/local/python-jss/master.tar.gz
+WORKDIR /usr/local/python-jss
 RUN python /usr/local/python-jss/setup.py install
 
 ADD https://github.com/nmcspadden/JSSImport/tarball/master $APP_DIR/master.tar.gz
