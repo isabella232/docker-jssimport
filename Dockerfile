@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.1
+FROM debian
 
 MAINTAINER Nick McSpadden <nmcspadden@gmail.com>
 
@@ -12,15 +12,10 @@ ENV JSS_USER user
 ENV JSS_PASS password
 ENV JSS_URL https://casper:8443/
 
-RUN apt-get update
-RUN apt-get install -y python-setuptools
-RUN apt-get install -y python-psycopg2
-RUN apt-get clean
+RUN apt-get update && apt-get install -y python-setuptools python-psycopg2 && apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN easy_install pip
-
-RUN pip install python-jss
+RUN easy_install pip && pip install python-jss
 
 ADD https://github.com/nmcspadden/JSSImport/tarball/master $APP_DIR/master.tar.gz
 RUN tar -zxvf /home/jssi/master.tar.gz --strip-components=1 && rm /home/jssi/master.tar.gz
