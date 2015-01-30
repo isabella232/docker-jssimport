@@ -14,7 +14,7 @@ Start the database to hold it, change variables as necessary:
 `docker run --name "jssimport-db" -d --volumes-from jssi-db-data -e DB_NAME=jssimport -e DB_USER=jssdbadmin -e DB_PASS=password --restart="always" macadmins/postgres`  
 
 Run the container, which will execute the JSSPull script and then delete itself:  
-`docker run --rm --name jssi --link jssimport-db:db -e DB_NAME=jssimport -e DB_USER=jssdbadmin -e DB_PASS=password -e JSS_USER=user -e JSS_PASS=password -e JSS_URL=https://casper.domain.com:8443 nmcspadden/jssimport`  
+`docker run --rm --name jssi --link jssimport-db:db -e DB_NAME=jssimport -e DB_USER=jssdbadmin -e DB_PASS=password -e JSS_USER=user -e JSS_PASS=password -e JSS_URL=https://casper.domain.com:8443 macadmins/jssimport`  
 
 The jssimport-db database container is now populated with the mobile device list from the provided JSS, and can be linked to a [WebHelpDesk container](https://registry.hub.docker.com/u/macadmins/whd/) for inventory aggregation.
 
